@@ -1,6 +1,5 @@
-import Link from "next/link";
-import { buildAffiliateUrl, getRefFromCookie } from "@/app/lib/affiliates";
 import Script from "next/script";
+import { buildAffiliateUrl, getRefFromCookie } from "@/app/lib/affiliates";
 import { articleJsonLd } from "@/app/lib/seo";
 
 const SITE = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
@@ -104,15 +103,15 @@ export default function AfiliadosPage() {
         <div className="card p-5">
           <h2 className="font-medium mb-1">Hoteles en {common.city}</h2>
           <ul className="text-sm space-y-2">
-            <li><Link className="text-emerald-600 underline" href={wrap(bookingUrl, "booking")} target="_blank">Booking (afiliado)</Link></li>
-            <li><Link className="text-emerald-600 underline" href={wrap(agodaUrl, "agoda")} target="_blank">Agoda (afiliado)</Link></li>
+            <li><a className="text-emerald-600 underline" href={wrap(bookingUrl, "booking")} target="_blank" rel="noopener noreferrer">Booking (afiliado)</a></li>
+            <li><a className="text-emerald-600 underline" href={wrap(agodaUrl, "agoda")} target="_blank" rel="noopener noreferrer">Agoda (afiliado)</a></li>
           </ul>
         </div>
         <div className="card p-5">
           <h2 className="font-medium mb-1">Vuelos {common.origin} → {common.destination}</h2>
           <ul className="text-sm space-y-2">
-            <li><Link className="text-emerald-600 underline" href={wrap(skyUrl, "skyscanner")} target="_blank">Skyscanner (afiliado)</Link></li>
-            <li><Link className="text-emerald-600 underline" href={wrap(tripUrl, "trip")} target="_blank">Trip.com (afiliado)</Link></li>
+            <li><a className="text-emerald-600 underline" href={wrap(skyUrl, "skyscanner")} target="_blank" rel="noopener noreferrer">Skyscanner (afiliado)</a></li>
+            <li><a className="text-emerald-600 underline" href={wrap(tripUrl, "trip")} target="_blank" rel="noopener noreferrer">Trip.com (afiliado)</a></li>
           </ul>
         </div>
       </section>
@@ -121,4 +120,3 @@ export default function AfiliadosPage() {
     </main>
   );
 }
-
