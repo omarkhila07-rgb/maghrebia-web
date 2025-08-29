@@ -66,10 +66,6 @@ export async function GET(req: Request) {
         children,
         class: cls,
         subId: ref,
-        utmSource: "puente",
-        utmMedium: "affiliate",
-        utmCampaign: partner,
-        utmContent: ref,
       });
 
     // Validación de seguridad
