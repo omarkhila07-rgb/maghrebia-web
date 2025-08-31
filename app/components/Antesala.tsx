@@ -1,12 +1,21 @@
 "use client";
 
 import { useRouter } from "next/navigation";
+import type { Route } from "next"; // <- para typed routes
 import { useCallback } from "react";
+
+// Define las rutas internas como constantes tipadas.
+// Si alguna página no existe, TypeScript se quejará aquí (útil).
+const routes = {
+  es: "/es",
+  ma: "/ma",
+  tramites: "/tramites",
+} as const satisfies Record<string, Route>;
 
 export default function Antesala({ compact = false }: { compact?: boolean }) {
   const router = useRouter();
 
-  const go = useCallback((path: string) => {
+  const go = useCallback((path: Route) => {
     try {
       // Analytics opcional
       // @ts-ignore
@@ -32,7 +41,7 @@ export default function Antesala({ compact = false }: { compact?: boolean }) {
         <div className="mt-6 grid gap-4 md:grid-cols-3">
           {/* España */}
           <button
-            onClick={() => go("/es")}
+            onClick={() => go(routes.es)}
             className="group relative rounded-2xl border border-slate-200 bg-white p-6 text-left shadow-sm transition hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-emerald-500"
           >
             <div className="flex items-center gap-3">
@@ -55,7 +64,7 @@ export default function Antesala({ compact = false }: { compact?: boolean }) {
 
           {/* Marruecos */}
           <button
-            onClick={() => go("/ma")}
+            onClick={() => go(routes.ma)}
             className="group relative rounded-2xl border border-slate-200 bg-white p-6 text-left shadow-sm transition hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-emerald-500"
           >
             <div className="flex items-center gap-3">
@@ -78,7 +87,7 @@ export default function Antesala({ compact = false }: { compact?: boolean }) {
 
           {/* Marroquí en España (Trámites) */}
           <button
-            onClick={() => go("/tramites")}
+            onClick={() => go(routes.tramites)}
             className="group relative rounded-2xl border border-brand-500 bg-white p-6 text-left shadow-sm transition hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-emerald-500"
           >
             <div className="flex items-center gap-3">

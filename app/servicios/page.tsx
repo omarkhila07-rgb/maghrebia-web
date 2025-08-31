@@ -1,4 +1,5 @@
 import Link from "next/link";
+import type { Route } from "next";
 
 export const metadata = {
   title: "Servicios — Puente",
@@ -6,17 +7,60 @@ export const metadata = {
     "Servicios para España y para Marruecos: web, SEO, catálogo, traducción Darija ⇄ Español.",
 };
 
-function Pack({ title, price, features, cta, href }: {
-  title: string; price: string; features: string[]; cta: string; href: string;
+/** Convierte un string href a:
+ *  - string (para externos o anclas)
+ *  - UrlObject tipado (para rutas internas con o sin query)
+ */
+function toHref(input: string):
+  | string
+  | { pathname: Route; query?: Record<string, string> } {
+  // anclas o externos -> usar <a>
+  if (input.startsWith("#") || /^https?:\/\//i.test(input)) return input;
+
+  const [pathname, qs] = input.split("?");
+  if (qs) {
+    const params = Object.fromEntries(new URLSearchParams(qs) as any);
+    return { pathname: pathname as Route, query: params };
+  }
+  return { pathname: input as Route };
+}
+
+function Pack({
+  title,
+  price,
+  features,
+  cta,
+  href,
+}: {
+  title: string;
+  price: string;
+  features: string[];
+  cta: string;
+  href: string;
 }) {
+  const parsed = toHref(href);
+
   return (
     <div className="card p-5 flex flex-col">
       <h3 className="text-lg font-semibold">{title}</h3>
       <div className="mt-1 text-2xl font-bold text-emerald-600">{price}</div>
       <ul className="mt-3 text-sm text-slate-700 space-y-1 list-disc pl-5">
-        {features.map((f) => <li key={f}>{f}</li>)}
+        {features.map((f) => (
+          <li key={f}>{f}</li>
+        ))}
       </ul>
-      <Link href={href} className="btn btn-brand mt-4">{cta}</Link>
+
+      {typeof parsed === "string" ? (
+        // Externo o #ancla
+        <a href={parsed} className="btn btn-brand mt-4" target={parsed.startsWith("#") ? undefined : "_blank"} rel={parsed.startsWith("#") ? undefined : "noopener noreferrer"}>
+          {cta}
+        </a>
+      ) : (
+        // Interno tipado (con o sin query)
+        <Link href={parsed} className="btn btn-brand mt-4">
+          {cta}
+        </Link>
+      )}
     </div>
   );
 }
@@ -30,14 +74,18 @@ export default function Servicios() {
           Elige tu lado: paquetes claros, bilingües y listos para vender.
         </p>
         <div className="flex gap-3 text-sm">
-          <a href="#espana" className="btn btn-ghost border">Para España</a>
-          <a href="#marruecos" className="btn btn-ghost border">Para Marruecos</a>
+          <a href="#espana" className="btn btn-ghost border">
+            Para España
+          </a>
+          <a href="#marruecos" className="btn btn-ghost border">
+            Para Marruecos
+          </a>
         </div>
       </header>
 
       {/* ——— España ——— */}
       <section id="espana" className="scroll-mt-24">
-        <h2 className="text-2xl font-semibold">��🇸 Para España</h2>
+        <h2 className="text-2xl font-semibold">🇪🇸 Para España</h2>
         <p className="text-slate-600 mt-1">
           Empresas en España que quieren vender en Marruecos o comunicarse con clientes marroquíes.
         </p>

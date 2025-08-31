@@ -36,7 +36,11 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   const orgLd = organizationJsonLd({
     name: "Puente",
     url: SITE,
@@ -46,14 +50,20 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
   return (
     <html lang="es">
-      <body>
+      <body className="min-h-screen bg-white text-slate-900">
         {/* Turnstile global */}
-        <Script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer />
+        <Script
+          src="https://challenges.cloudflare.com/turnstile/v0/api.js"
+          async
+          defer
+        />
         {/* Plausible Analytics (si configuraste dominio) */}
         {(process.env.NEXT_PUBLIC_PLAUSIBLE ?? process.env.PLAUSIBLE_DOMAIN) ? (
           <Script
             defer
-            data-domain={process.env.NEXT_PUBLIC_PLAUSIBLE || process.env.PLAUSIBLE_DOMAIN}
+            data-domain={
+              process.env.NEXT_PUBLIC_PLAUSIBLE || process.env.PLAUSIBLE_DOMAIN
+            }
             src="https://plausible.io/js/script.js"
           />
         ) : null}
@@ -67,16 +77,25 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
         <header className="border-b bg-white/70 backdrop-blur-md sticky top-0 z-40">
           <div className="container-outer flex h-14 items-center justify-between">
-            <Link href="/" className="font-semibold">🌉 Puente</Link>
+            <Link href="/" className="font-semibold">
+              🌉 Puente
+            </Link>
 
             {/* NAV con dropdown Viajes */}
             <nav className="flex items-center gap-5 text-sm">
-              <Link className="nav-link" href="/traductor">Traductor</Link>
-              <Link className="nav-link" href="/servicios">Servicios</Link>
+              <Link className="nav-link" href="/traductor">
+                Traductor
+              </Link>
+              <Link className="nav-link" href="/servicios">
+                Servicios
+              </Link>
 
               {/* Dropdown Viajes */}
               <div className="relative group">
-                <Link href="/viajes" className="nav-link inline-flex items-center gap-1">
+                <Link
+                  href="/viajes"
+                  className="nav-link inline-flex items-center gap-1"
+                >
                   Viajes <span aria-hidden>▾</span>
                 </Link>
                 <div
@@ -119,8 +138,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 </div>
               </div>
 
-              <Link className="nav-link" href="/afiliados">Afiliados</Link>
-              <Link className="nav-link" href="/contacto">Contacto</Link>
+              <Link className="nav-link" href="/afiliados">
+                Afiliados
+              </Link>
+              <Link className="nav-link" href="/contacto">
+                Contacto
+              </Link>
             </nav>
           </div>
         </header>
@@ -131,8 +154,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <div className="container-outer flex items-center justify-between">
             <p>Hecho con ♥ para el puente Marruecos ↔ España</p>
             <nav className="flex gap-4">
-              <Link href="/legal/privacidad" className="hover:underline">Privacidad</Link>
-              <Link href="/legal/terminos" className="hover:underline">Términos</Link>
+              <Link href="/legal/privacidad" className="hover:underline">
+                Privacidad
+              </Link>
+              <Link href="/legal/terminos" className="hover:underline">
+                Términos
+              </Link>
             </nav>
           </div>
         </footer>
