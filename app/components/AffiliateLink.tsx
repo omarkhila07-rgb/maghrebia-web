@@ -1,4 +1,4 @@
-import Link from "next/link";
+// app/components/AffiliateLink.tsx
 import type { ReactNode } from "react";
 
 type Props = {
@@ -16,6 +16,11 @@ type Props = {
   rel?: string;
 };
 
+function buildClickUrl(partner: string, to: string, refId?: string) {
+  const base = `/api/click?partner=${encodeURIComponent(partner)}&to=${encodeURIComponent(to)}`;
+  return refId ? `${base}&ref=${encodeURIComponent(refId)}` : base;
+}
+
 export default function AffiliateLink({
   partner,
   to,
@@ -24,15 +29,22 @@ export default function AffiliateLink({
   className,
   title,
   target = "_blank",
-  rel = "noopener noreferrer",
+  rel,
 }: Props) {
-  const href = `/api/click?partner=${encodeURIComponent(partner)}&to=${encodeURIComponent(to)}${
-    refId ? `&ref=${encodeURIComponent(refId)}` : ""
-  }`;
+  const href = buildClickUrl(partner, to, refId);
+  const safeRel = rel ?? (target === "_blank" ? "noopener noreferrer" : undefined);
 
   return (
-    <Link href={href} className={className} title={title} target={target} rel={rel}>
+    <a
+      href={href}
+      className={className}
+      title={title}
+      target={target}
+      rel={safeRel}
+      data-partner={partner}
+      data-ref={refId}
+    >
       {children}
-    </Link>
+    </a>
   );
 }
