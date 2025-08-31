@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { buildAffiliateUrl, getRefFromCookie } from "@/app/lib/affiliates";
+import { buildAffiliateUrl, getRefFromCookie } from "@/lib/affiliates";
 
 const city = "Marrakech";
 
