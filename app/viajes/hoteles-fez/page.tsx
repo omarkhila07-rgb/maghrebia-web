@@ -28,8 +28,8 @@ export default function Page(){
       <h1 className="text-3xl font-semibold">Hoteles en {city}</h1>
       <p className="text-slate-700">Zonas recomendadas y enlaces para comparar precios.</p>
       <div className="flex gap-3">
-        <Link href={wrap(booking,"booking",ref)} target="_blank" className="btn btn-brand">Buscar en Booking</Link>
-        <Link href={wrap(agoda,"agoda",ref)} target="_blank" className="btn btn-ghost">Buscar en Agoda</Link>
+        <a href={wrap(booking,"booking",ref)} target="_blank" rel="noopener noreferrer" className="btn btn-brand">Buscar en Booking</a>
+        <a href={wrap(agoda,"agoda",ref)} target="_blank" rel="noopener noreferrer" className="btn btn-ghost">Buscar en Agoda</a>
       </div>
       <section className="space-y-2">
         <h2 className="text-xl font-semibold">Zonas</h2>
