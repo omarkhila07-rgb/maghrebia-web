@@ -36,8 +36,6 @@ export default function Viajes() {
             >
               Vuelos BCN → TNG
             </Link>
-            <Link
-            <Link
           </div>
         </div>
 
@@ -137,7 +135,10 @@ export default function Viajes() {
             <Link href="/viajes/vuelos-madrid-tanger" className="btn btn-ghost">
               MAD → TNG
             </Link>
-            <Link href="/viajes/vuelos-barcelona-tanger" className="btn btn-brand">
+            <Link
+              href="/viajes/vuelos-barcelona-tanger"
+              className="btn btn-brand"
+            >
               BCN → TNG
             </Link>
           </div>
