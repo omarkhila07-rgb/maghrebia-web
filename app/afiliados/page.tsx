@@ -1,6 +1,6 @@
 import Script from "next/script";
-import { buildAffiliateUrl, getRefFromCookie } from "@/app/lib/affiliates";
-import { articleJsonLd } from "@/app/lib/seo";
+import { buildAffiliateUrl, getRefFromCookie } from "@/lib/affiliates";
+import { articleJsonLd } from "@/lib/seo";
 
 const SITE = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
 

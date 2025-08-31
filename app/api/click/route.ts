@@ -1,7 +1,7 @@
 // app/api/click/route.ts
 import { NextResponse } from "next/server";
-import { appendLeadRow } from "@/app/lib/sheets";
-import { buildAffiliateUrl, type Partner } from "@/app/lib/affiliates";
+import { appendLeadRow } from "@/lib/sheets";
+import { buildAffiliateUrl, type Partner } from "@/lib/affiliates";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";

@@ -1,4 +1,4 @@
-import Antesala from "@/app/components/Antesala";
+import Antesala from "@/components/Antesala";
 import Link from "next/link";
 
 export default function Home() {

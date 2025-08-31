@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { buildAffiliateUrl, getRefFromCookie } from "@/app/lib/affiliates";
+import { buildAffiliateUrl, getRefFromCookie } from "@/lib/affiliates";
 const city = "Fez";
 export const metadata: Metadata = {
   title: `Hoteles en ${city} — Mejores zonas y ofertas | Puente`,

@@ -1,1 +1,1 @@
-export { default } from "@/app/afiliados/ui/AfiliadosClient";
+export { default } from "@/afiliados/ui/AfiliadosClient";

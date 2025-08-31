@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Link from "next/link";
 import Script from "next/script";
-import { organizationJsonLd } from "@/app/lib/seo";
+import { organizationJsonLd } from "@/lib/seo";
 
 const SITE = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
 

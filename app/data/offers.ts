@@ -1,4 +1,4 @@
-import type { Partner, Category } from "@/app/lib/affiliates";
+import type { Partner, Category } from "@/lib/affiliates";
 
 export type Offer = {
   id: string;

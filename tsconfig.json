@@ -14,14 +14,21 @@
     "jsx": "preserve",
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./*"],
+      "@/*": ["app/*"],
+      "@/components/*": ["app/components/*"],
+      "@/lib/*": ["app/lib/*"],
       "@components/*": ["app/components/*"],
       "@lib/*": ["app/lib/*"]
     },
     "incremental": true,
     "plugins": [{ "name": "next" }]
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "include": [
+    "next-env.d.ts",
+    "types/**/*.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts"
+  ],
   "exclude": ["node_modules"]
 }
-

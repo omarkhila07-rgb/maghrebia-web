@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { cookies, headers } from "next/headers";
 import { Resend } from "resend";
-import { appendLeadRow } from "@/app/lib/sheets";
+import { appendLeadRow } from "@/lib/sheets";
 
 const resend = process.env.RESEND_API_KEY ? new Resend(process.env.RESEND_API_KEY) : null;
 
