@@ -1,13 +1,13 @@
 // app/api/ocr/route.ts
 import { NextResponse } from "next/server";
-import pdfParse from "pdf-parse";
 import Tesseract from "tesseract.js";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
 const MAX_SIZE = 10 * 1024 * 1024; // 10 MB
-const ALLOWED = ["application/pdf", "image/jpeg", "image/png"];
+// Solo imágenes: si quieres volver a admitir PDF, habrá que añadir una lib para parsearlo.
+const ALLOWED = ["image/jpeg", "image/png"];
 const CF_VERIFY_URL = "https://challenges.cloudflare.com/turnstile/v0/siteverify";
 
 // Mapea un valor de lang opcional del cliente a el pack de tesseract
@@ -69,7 +69,10 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: "Falta el archivo" }, { status: 400 });
     }
     if (!ALLOWED.includes(f.type)) {
-      return NextResponse.json({ error: "Formato no soportado (PDF/JPG/PNG)" }, { status: 415 });
+      return NextResponse.json(
+        { error: "Formato no soportado. Sube JPG o PNG." },
+        { status: 415 }
+      );
     }
     if (f.size > MAX_SIZE) {
       return NextResponse.json({ error: "Archivo demasiado grande (máx 10MB)" }, { status: 413 });
@@ -78,29 +81,15 @@ export async function POST(req: Request) {
     const ab = await f.arrayBuffer();
     const buf = Buffer.from(ab);
 
-    let text = "";
-    let pages = 1;
-
-    if (f.type === "application/pdf") {
-      // PDF → extracción directa de texto
-      const parsed = await pdfParse(buf);
-      text = (parsed.text || "").trim();
-      pages = parsed.numpages || 1;
-    } else {
-      // JPG/PNG → OCR
-      const res = await Tesseract.recognize(buf, langOpt);
-      text = (res.data.text || "").trim();
-      pages = 1;
-    }
-
-    // Limpieza mínima caracteres nulos
-    text = text.replace(/\u0000/g, "").trim();
+    // Solo imágenes → OCR con Tesseract
+    const res = await Tesseract.recognize(buf, langOpt as any);
+    let text = (res.data.text || "").replace(/\u0000/g, "").trim();
 
     return NextResponse.json({
       ok: true,
       filename: f.name,
       mime: f.type,
-      pages,
+      pages: 1,
       chars: text.length,
       text,
     });
