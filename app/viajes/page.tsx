@@ -16,16 +16,38 @@ export default function Viajes() {
             <span className="text-brand-600">Marruecos</span> sin líos
           </h1>
           <p className="text-slate-600">
-            Hoteles y vuelos en el norte, más ferries. Guías rápidas y enlaces fiables.
+            Hoteles y vuelos en el norte, más ferries. Guías rápidas y enlaces
+            fiables.
           </p>
 
           <div className="flex flex-wrap gap-3 mt-4">
-            <Link href="/viajes/hoteles-tanger" className="btn btn-ghost">Hoteles Tánger</Link>
-            <Link href="/viajes/hoteles-tetuan" className="btn btn-ghost">Hoteles Tetuán</Link>
-            <Link href="/viajes/vuelos-madrid-tanger" className="btn btn-ghost">Vuelos MAD → TNG</Link>
-            <Link href="/viajes/vuelos-barcelona-tanger" className="btn btn-ghost">Vuelos BCN → TNG</Link>
-            <Link href="/viajes/ferries-espana-marruecos" className="btn btn-ghost">Ferries España ↔ Marruecos</Link>
-            <Link href="/viajes/ferries-tarifa-tanger" className="btn btn-ghost">Ferries Tarifa ↔ Tánger</Link>
+            <Link href="/viajes/hoteles-tanger" className="btn btn-ghost">
+              Hoteles Tánger
+            </Link>
+            <Link href="/viajes/hoteles-tetuan" className="btn btn-ghost">
+              Hoteles Tetuán
+            </Link>
+            <Link href="/viajes/vuelos-madrid-tanger" className="btn btn-ghost">
+              Vuelos MAD → TNG
+            </Link>
+            <Link
+              href="/viajes/vuelos-barcelona-tanger"
+              className="btn btn-ghost"
+            >
+              Vuelos BCN → TNG
+            </Link>
+            <Link
+              href="/viajes/ferries-espana-marruecos"
+              className="btn btn-ghost"
+            >
+              Ferries España ↔ Marruecos
+            </Link>
+            <Link
+              href="/viajes/ferries-tarifa-tanger"
+              className="btn btn-ghost"
+            >
+              Ferries Tarifa ↔ Tánger
+            </Link>
           </div>
         </div>
 
@@ -33,22 +55,38 @@ export default function Viajes() {
           <h2 className="font-medium mb-2">Atajos rápidos</h2>
           <ul className="list-disc pl-5 space-y-1 text-sm">
             <li>
-              <Link className="text-emerald-700 underline" href="/api/click?partner=booking&to=https%3A%2F%2Fwww.booking.com%2Findex.html&ref=viajes-hero">
+              <a
+                className="text-emerald-700 underline"
+                href="/api/click?partner=booking&to=https%3A%2F%2Fwww.booking.com%2Findex.html&ref=viajes-hero"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 Booking: hoteles en Tánger/Tetuán
-              </Link>
+              </a>
             </li>
             <li>
-              <Link className="text-emerald-700 underline" href="/api/click?partner=agoda&to=https%3A%2F%2Fwww.agoda.com%2F&ref=viajes-hero">
+              <a
+                className="text-emerald-700 underline"
+                href="/api/click?partner=agoda&to=https%3A%2F%2Fwww.agoda.com%2F&ref=viajes-hero"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 Agoda: hoteles en el norte
-              </Link>
+              </a>
             </li>
             <li>
-              <Link className="text-emerald-700 underline" href="/viajes/vuelos-madrid-tanger">
+              <Link
+                className="text-emerald-700 underline"
+                href="/viajes/vuelos-madrid-tanger"
+              >
                 Skyscanner: vuelos MAD → TNG
               </Link>
             </li>
             <li>
-              <Link className="text-emerald-700 underline" href="/viajes/vuelos-barcelona-tanger">
+              <Link
+                className="text-emerald-700 underline"
+                href="/viajes/vuelos-barcelona-tanger"
+              >
                 Trip/Skyscanner: vuelos BCN → TNG
               </Link>
             </li>
@@ -66,10 +104,17 @@ export default function Viajes() {
             Zonas: Medina, Corniche, Marshan. Para playa/restaurantes, Corniche.
           </p>
           <div className="mt-3 flex gap-2">
-            <Link href="/viajes/hoteles-tanger" className="btn btn-ghost">Guía</Link>
-            <Link href="/api/click?partner=booking&to=https%3A%2F%2Fwww.booking.com%2Findex.html&ref=viajes-card" className="btn btn-brand">
-              Ver en Booking
+            <Link href="/viajes/hoteles-tanger" className="btn btn-ghost">
+              Guía
             </Link>
+            <a
+              href="/api/click?partner=booking&to=https%3A%2F%2Fwww.booking.com%2Findex.html&ref=viajes-card"
+              className="btn btn-brand"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Ver en Booking
+            </a>
           </div>
         </div>
 
@@ -79,10 +124,17 @@ export default function Viajes() {
             Ideal Ensanche si quieres tranquilidad, Medina si buscas turismo.
           </p>
           <div className="mt-3 flex gap-2">
-            <Link href="/viajes/hoteles-tetuan" className="btn btn-ghost">Guía</Link>
-            <Link href="/api/click?partner=agoda&to=https%3A%2F%2Fwww.agoda.com%2F&ref=viajes-card" className="btn btn-brand">
-              Ver en Agoda
+            <Link href="/viajes/hoteles-tetuan" className="btn btn-ghost">
+              Guía
             </Link>
+            <a
+              href="/api/click?partner=agoda&to=https%3A%2F%2Fwww.agoda.com%2F&ref=viajes-card"
+              className="btn btn-brand"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Ver en Agoda
+            </a>
           </div>
         </div>
 
@@ -92,8 +144,12 @@ export default function Viajes() {
             Alta demanda en verano/puentes; prueba fechas flexibles.
           </p>
           <div className="mt-3 flex gap-2">
-            <Link href="/viajes/vuelos-madrid-tanger" className="btn btn-ghost">MAD → TNG</Link>
-            <Link href="/viajes/vuelos-barcelona-tanger" className="btn btn-brand">BCN → TNG</Link>
+            <Link href="/viajes/vuelos-madrid-tanger" className="btn btn-ghost">
+              MAD → TNG
+            </Link>
+            <Link href="/viajes/vuelos-barcelona-tanger" className="btn btn-brand">
+              BCN → TNG
+            </Link>
           </div>
         </div>
       </section>
