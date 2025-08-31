@@ -121,12 +121,6 @@ export default function RootLayout({
                       Vuelos Madrid → Tánger
                     </Link>
                     <Link
-                      href="/viajes/ferries-espana-marruecos"
-                      className="block px-3 py-2 rounded-lg hover:bg-slate-50"
-                      role="menuitem"
-                    >
-                      Ferries España ↔ Marruecos
-                    </Link>
                     <Link
                       href="/viajes"
                       className="block px-3 py-2 rounded-lg hover:bg-slate-50 font-medium"

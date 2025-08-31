@@ -37,17 +37,7 @@ export default function Viajes() {
               Vuelos BCN → TNG
             </Link>
             <Link
-              href="/viajes/ferries-espana-marruecos"
-              className="btn btn-ghost"
-            >
-              Ferries España ↔ Marruecos
-            </Link>
             <Link
-              href="/viajes/ferries-tarifa-tanger"
-              className="btn btn-ghost"
-            >
-              Ferries Tarifa ↔ Tánger
-            </Link>
           </div>
         </div>
 
